@@ -46,10 +46,10 @@ ZERO_TRACKER_NO_ODOM,
 //You will input whatever motor names you chose when you configured your robot using the sidebar configurer, they don't have to be "Motor1" and "Motor2".
 
 //Left Motors:
-motor_group(leftMotorLB1,leftMotorLB2,leftMotorT1),
+motor_group(leftMotorLB,leftMotorLF,leftMotorLT1),
 
 //Right Motors:
-motor_group(rightMotorRB1, rightMotorRB2, rightMotorT2),
+motor_group(rightMotorRB, rightMotorRF, rightMotorRT2),
 
 //Specify the PORT NUMBER of your inertial sensor, in PORT format (i.e. "PORT1", not simply "1"):
 PORT1,
@@ -255,6 +255,7 @@ void usercontrol(void) {
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
+}
 }
 
 //

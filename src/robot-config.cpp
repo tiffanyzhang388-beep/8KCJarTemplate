@@ -27,7 +27,7 @@ motor rightMotorRT2 = motor(PORT9, ratio6_1, false);
 motor intakeL = motor(PORT1, ratio6_1, true);
 motor intakeR = motor(PORT10, ratio6_1, true);
 
-motor_group intake = motor_group( intake1, intake2);
+motor_group intake = motor_group( intakeL, intakeR);
 
 digital_out pistonleft = digital_out( Brain.ThreeWirePort.A);
 
