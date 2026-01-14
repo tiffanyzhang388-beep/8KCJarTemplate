@@ -14,13 +14,13 @@ extern motor leftMotorLF;
 extern motor rightMotorRB;
 extern motor rightMotorRF;
 extern motor leftMotorLT1;
-extern motor rightMotorRT2;
+extern motor rightMotorRT1;
 extern motor intake1;
 extern motor intake2;
 
 extern motor_group intake;
 
-extern digital_out pistonleft;
+extern digital_out top;
 
 
 

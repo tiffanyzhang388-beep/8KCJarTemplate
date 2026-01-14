@@ -49,7 +49,7 @@ ZERO_TRACKER_NO_ODOM,
 motor_group(leftMotorLB,leftMotorLF,leftMotorLT1),
 
 //Right Motors:
-motor_group(rightMotorRB, rightMotorRF, rightMotorRT2),
+motor_group(rightMotorRB, rightMotorRF, rightMotorRT1),
 
 //Specify the PORT NUMBER of your inertial sensor, in PORT format (i.e. "PORT1", not simply "1"):
 PORT1,
@@ -215,6 +215,8 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+  bool toggleA = true; 
+  top.set(pistondir);
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -228,34 +230,28 @@ void usercontrol(void) {
     //Replace this line with chassis.control_tank(); for tank drive 
     //or chassis.control_holonomic(); for holo drive.
     chassis.control_arcade();
-    pistonleft.set(pistondir);
-    
     if (ControllerMain.ButtonR1.pressing()){
-      intake.spin(fwd,100,pct);
+      intake.spin(fwd,127,pct);
+    }
+
+    if (ControllerMain.ButtonL1.pressing()){
+      intake.spin(reverse,127,pct);
     }
 
     if (ControllerMain.ButtonA.pressing()){
-      while(ControllerMain.ButtonA.pressing()){
-        wait(100,msec);
+      if(toggleA){
+        pistondir=!pistondir;
+        top.set(pistondir);
+        toggleA = false; 
       }
-      pistondir=!pistondir;
-      pistonleft.set(pistondir);
+    } else{
+      toggleA = true; 
     }
 
-  
-    if (ControllerMain.ButtonL1.pressing()){
-      intake.spin(reverse,100,pct);
-    
-  
 
-
-  
-
-
-    wait(20, msec); // Sleep the task for a short amount of time to
+  wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
-}
 }
 
 //

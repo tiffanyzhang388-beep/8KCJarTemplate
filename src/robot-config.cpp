@@ -18,17 +18,19 @@ void vexcodeInit( void ) {
 }
 controller ControllerMain = controller(primary);
 
-motor leftMotorLB = motor(PORT15, ratio6_1, false);
-motor leftMotorLF = motor(PORT16, ratio6_1, false);
-motor rightMotorRF = motor(PORT8, ratio6_1, false);
-motor rightMotorRB = motor(PORT19, ratio6_1, false);
-motor leftMotorLT1 = motor(PORT14, ratio6_1, false);
-motor rightMotorRT2 = motor(PORT9, ratio6_1, false);
-motor intakeL = motor(PORT1, ratio6_1, true);
+motor leftMotorLB = motor(PORT15 , ratio6_1, false); //left back
+motor leftMotorLF = motor(PORT16, ratio6_1, false); //left front
+motor leftMotorLT1 = motor(PORT14, ratio6_1, false); //left upside down
+
+motor rightMotorRB = motor(PORT17, ratio6_1, false); //right back
+motor rightMotorRF = motor(PORT8, ratio6_1, false); //right front
+motor rightMotorRT1 = motor(PORT9, ratio6_1, false); //right upside down
+
+motor intakeL = motor(PORT7, ratio6_1, true);
 motor intakeR = motor(PORT10, ratio6_1, true);
 
-motor_group intake = motor_group( intakeL, intakeR);
+motor_group intake = motor_group(intakeL, intakeR);
 
-digital_out pistonleft = digital_out( Brain.ThreeWirePort.A);
+digital_out top = digital_out(Brain.ThreeWirePort.A);
 
 
