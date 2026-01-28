@@ -38,4 +38,4 @@ motor outtake = motor(PORT10, ratio6_1, true);
 digital_out scraper = digital_out(Brain.ThreeWirePort.A);
 digital_out descorer = digital_out(Brain.ThreeWirePort.B);
 
-
+//what the sigma 
